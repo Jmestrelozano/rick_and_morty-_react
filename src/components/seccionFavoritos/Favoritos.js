@@ -1,7 +1,7 @@
 import React from "react";
 import { Footer } from "../footer/Footer";
 import { Header } from "../header/Header";
-import starLogo from "../../assets/img/start.png";
+
 import "../seccionFavoritos/favoritos.css";
 import { CardInfo } from "../cards/CardInfo";
 import { useState } from "react/cjs/react.development";
@@ -72,7 +72,7 @@ export const Favoritos = () => {
         <div className="encabezado-favoritos">
           <h1 className="titulo">Mostrar Favoritos</h1>
           <div className="fondo-estrella">
-            <img className="logo-estrella" src={starLogo} alt="Estrella-logo" />
+            <img className="logo-estrella" src={process.env.PUBLIC_URL+'/assets/img/start.png'} alt="Estrella-logo" />
           </div>
         </div>
         <a onClick={() => history.goBack()}>Regresar</a>

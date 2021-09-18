@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { App } from "../pages/detallesPages";
 import { CardInfo } from "./cards/CardInfo";
 import "../components/seccionFavoritos/favoritos.css";
-import starLogo from "../assets/img/start.png";
 export const MainVistaPrincipal = ({
   setIsOpen,
   modalIsOpen,
@@ -27,7 +26,7 @@ export const MainVistaPrincipal = ({
           </Link>
         </h1>
         <div className="fondo-estrella">
-          <img className="logo-estrella" src={starLogo} alt="Estrella-logo" />
+          <img className="logo-estrella" src={process.env.PUBLIC_URL+'/assets/img/start.png'} alt="Estrella-logo" />
         </div>
       </div>
 

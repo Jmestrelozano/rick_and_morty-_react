@@ -1,24 +1,20 @@
 {
   "files": {
-    "main.css": "/static/css/main.801aeeb8.chunk.css",
-    "main.js": "/static/js/main.b5766414.chunk.js",
-    "main.js.map": "/static/js/main.b5766414.chunk.js.map",
+    "main.css": "/static/css/main.e14b1337.chunk.css",
+    "main.js": "/static/js/main.3651b528.chunk.js",
+    "main.js.map": "/static/js/main.3651b528.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.8a7e5c6d.js",
     "runtime-main.js.map": "/static/js/runtime-main.8a7e5c6d.js.map",
-    "static/js/2.091bf1bd.chunk.js": "/static/js/2.091bf1bd.chunk.js",
-    "static/js/2.091bf1bd.chunk.js.map": "/static/js/2.091bf1bd.chunk.js.map",
+    "static/js/2.7c70c012.chunk.js": "/static/js/2.7c70c012.chunk.js",
+    "static/js/2.7c70c012.chunk.js.map": "/static/js/2.7c70c012.chunk.js.map",
     "index.html": "/index.html",
-    "static/css/main.801aeeb8.chunk.css.map": "/static/css/main.801aeeb8.chunk.css.map",
-    "static/js/2.091bf1bd.chunk.js.LICENSE.txt": "/static/js/2.091bf1bd.chunk.js.LICENSE.txt",
-    "static/media/bg.318509ab.png": "/static/media/bg.318509ab.png",
-    "static/media/fondo-modal.d565d30a.png": "/static/media/fondo-modal.d565d30a.png",
-    "static/media/portal-morty-smith-rick.fda1f154.png": "/static/media/portal-morty-smith-rick.fda1f154.png",
-    "static/media/rick and morty.f276a0c6.png": "/static/media/rick and morty.f276a0c6.png"
+    "static/css/main.e14b1337.chunk.css.map": "/static/css/main.e14b1337.chunk.css.map",
+    "static/js/2.7c70c012.chunk.js.LICENSE.txt": "/static/js/2.7c70c012.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.8a7e5c6d.js",
-    "static/js/2.091bf1bd.chunk.js",
-    "static/css/main.801aeeb8.chunk.css",
-    "static/js/main.b5766414.chunk.js"
+    "static/js/2.7c70c012.chunk.js",
+    "static/css/main.e14b1337.chunk.css",
+    "static/js/main.3651b528.chunk.js"
   ]
 }

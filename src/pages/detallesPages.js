@@ -1,8 +1,7 @@
 import React, { useEffect } from "react";
 import Modal from "react-modal";
-import fondoModal from "../assets/img/fondo-modal.png";
+
 import { CardDetalleInfo } from "../components/cards/CardDetalleInfo";
-import botonCerrar from "../assets/img/Vector.png";
 import "../pages/estilos/modal.css"
 import "../pages/estilos/detallePages.css"
 import "../components/cards/cardDetalleInfo.css"
@@ -34,7 +33,7 @@ export function App({
         contentLabel="Example Modal"
       >
         <div className="fondo-modal">
-          <img className="fondo-modal-img" src={fondoModal} alt="fondo-modal" />
+          <img className="fondo-modal-img" src={process.env.PUBLIC_URL+'/assets/img/fondo-modal.png'} alt="fondo-modal" />
         </div>
         <div className="modal-seccion-perfil"></div>
         {detallesPersonaje !== [] && detallesPersonaje.length > 0 && (
@@ -109,7 +108,7 @@ export function App({
         <img
           className="button-modal-close"
           onClick={closeModal}
-          src={botonCerrar}
+          src={process.env.PUBLIC_URL+'/assets/img/Vector.png'}
           alt="boton-cerrar"
         />
       </Modal>
