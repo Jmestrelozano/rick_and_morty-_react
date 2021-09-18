@@ -65,6 +65,7 @@ export const Favoritos = () => {
 
     setGuardarPersonajesInteresantes(result);
   };
+  console.log(favoritos,"jjsjsjsjsjs")
   return (
     <>
       <Header></Header>
@@ -84,7 +85,7 @@ export const Favoritos = () => {
           detallesPersonaje={detallesPersonaje}
         />
         <div style={{ marginTop: "1rem" }} className="card-info">
-          {favoritos.map((favorito, index) => {
+          {favoritos !==null &&favoritos.map((favorito, index) => {
             return (
               <CardInfo
                 key={index}

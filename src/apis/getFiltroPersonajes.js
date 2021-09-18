@@ -5,10 +5,14 @@ export const getFiltroPersonajes = async (name) => {
     // const personaje = JSON.parse(localStorage.getItem("PersonajesFiltro"))
     let response = await fetch(`${URL_API}/character/?name=${name}`);
 
-    if (!response.ok) console.error("No se pudo realizar la peticion");
+    if (!response.ok){
+      console.error("No se pudo realizar la peticion");
+      return null
+    }
 
     return await response.json();
   } catch (error) {
     console.error(error);
+    return null
   }
 };
