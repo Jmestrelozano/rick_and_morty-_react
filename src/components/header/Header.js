@@ -4,7 +4,7 @@ export const Header = ({children}) => {
     return (
         <div className="header">
             <div className="fondo">
-                <img className="fondo-img" src={process.env.PUBLIC_URL+'/assets/img/bg.png'} alt="fondo background"/>
+                <img className="fondo-img" src={process.env.PUBLIC_URL+'/bg.png'} alt="fondo background"/>
             </div>
             
             <div className="logo">
