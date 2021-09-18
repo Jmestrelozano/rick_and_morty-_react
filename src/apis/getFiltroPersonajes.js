@@ -7,7 +7,7 @@ export const getFiltroPersonajes = async (name) => {
 
     if (!response.ok){
       console.error("No se pudo realizar la peticion");
-      return null
+      
     }
 
     return await response.json();

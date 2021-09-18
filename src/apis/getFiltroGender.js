@@ -14,10 +14,15 @@ export const getFiltroGender = async (gender) => {
     try {
       let response = await fetch(`${URL_API}/character/?gender=${gender}`);
 
-      if (!response.ok) console.error("No se pudo realizar la peticion");
+      if (!response.ok) {
+        console.error("No se pudo realizar la peticion");
+        return null;
+      }
+
       return await response.json();
     } catch (error) {
       console.error(error);
+      return null;
     }
   }
 };

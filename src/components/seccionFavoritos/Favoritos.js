@@ -1,10 +1,9 @@
-import React from "react";
+import React, {useState} from "react";
 import { Footer } from "../footer/Footer";
 import { Header } from "../header/Header";
 
 import "../seccionFavoritos/favoritos.css";
 import { CardInfo } from "../cards/CardInfo";
-import { useState } from "react/cjs/react.development";
 import { App } from "../../pages/detallesPages";
 import { getObtenerPersonaje } from "../../apis/getObtenerPersonaje";
 import { obtenerPersonajesInteresantes } from "../../apis/ObtenerPersonajesInteresantes";
@@ -22,7 +21,6 @@ export const Favoritos = () => {
     setOpenModal(true);
   };
   const handleView = (id) => {
-    console.log(id);
     selectDetallesPersonaje(id);
   };
 
@@ -39,7 +37,6 @@ export const Favoritos = () => {
   const mostrarEpisodiosInfo = async (detallePersonaje) => {
     setGuardarEpisodios([]);
     if (detallePersonaje !== undefined) {
-      //console.log(detallePersonaje,"episodios para mostrat")
 
       const paginacion_visible = 6;
       let numeroPagina;
@@ -65,18 +62,30 @@ export const Favoritos = () => {
 
     setGuardarPersonajesInteresantes(result);
   };
-  console.log(favoritos,"jjsjsjsjsjs")
+  
   return (
     <>
       <Header></Header>
       <div className="contenedor">
-        <div className="encabezado-favoritos">
-          <h1 className="titulo">Mostrar Favoritos</h1>
-          <div className="fondo-estrella">
-            <img className="logo-estrella" src={process.env.PUBLIC_URL+'/assets/img/start.png'} alt="Estrella-logo" />
+        
+        <div style={{ display: "flex", justifyContent: "space-between" }}>
+          <div className="encabezado-favoritos">
+            <h1 className="titulo">Mostrar Favoritos</h1>
+            <div className="fondo-estrella">
+              <img
+                className="logo-estrella"
+                src={process.env.PUBLIC_URL + "/assets/img/start.png"}
+                alt="Estrella-logo"
+              />
+            </div>
+          </div>
+          <div>
+            <a className="boton-regresar" onClick={() => history.goBack()}>
+              Regresar
+            </a>
           </div>
         </div>
-        <a onClick={() => history.goBack()}>Regresar</a>
+
         <App
           setIsOpen={setOpenModal}
           modalIsOpen={OpenModal}
@@ -85,19 +94,26 @@ export const Favoritos = () => {
           detallesPersonaje={detallesPersonaje}
         />
         <div style={{ marginTop: "1rem" }} className="card-info">
-          {favoritos !==null &&favoritos.map((favorito, index) => {
-            return (
-              <CardInfo
-                key={index}
-                personaje={favorito}
-                handleView={handleView}
-                openModal={openModal}
-                seleccionarFavorito={[]}
-                color="#F2994A"
-              />
-            );
-          })}
+          {favoritos !== null &&
+            favoritos.map((favorito, index) => {
+              return (
+                <CardInfo
+                  key={index}
+                  personaje={favorito}
+                  handleView={handleView}
+                  openModal={openModal}
+                  seleccionarFavorito={[]}
+                  color="#F2994A"
+                />
+              );
+            })}
         </div>
+        {favoritos === null && (
+          <div className="contenedor-message-info">
+            <h2>Uh-Oh!</h2>
+            <p>Pareces perdido en tu viaje</p>
+          </div>
+        )}
       </div>
       <Footer />
     </>

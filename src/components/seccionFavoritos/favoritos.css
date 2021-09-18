@@ -33,3 +33,12 @@
 .default-color {
   color: #828282 !important;
 }
+
+
+.contenedor-message-info{
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  text-align: center;
+  flex-direction: column;
+}

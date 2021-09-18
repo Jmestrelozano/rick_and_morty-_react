@@ -14,6 +14,8 @@ export const MainVistaPrincipal = ({
   detallesPersonaje,
   seleccionarFavorito,
 }) => {
+
+
   return (
     <div className="contenedor">
       <div style={{ marginBottom: "1rem" }} className="encabezado-favoritos">
@@ -26,7 +28,7 @@ export const MainVistaPrincipal = ({
           </Link>
         </h1>
         <div className="fondo-estrella">
-          <img className="logo-estrella" src={process.env.PUBLIC_URL+'/assets/img/start.png'} alt="Estrella-logo" />
+          <img className="logo-estrella default-color" src={process.env.PUBLIC_URL+'/assets/img/startDefault.png'} alt="Estrella-logo" />
         </div>
       </div>
 

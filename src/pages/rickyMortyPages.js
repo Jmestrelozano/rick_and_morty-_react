@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useHistory, useLocation } from "react-router";
 import { getFiltroGender } from "../apis/getFiltroGender";
 import { getFiltroPersonajes } from "../apis/getFiltroPersonajes";
 import { getObtenerPersonaje } from "../apis/getObtenerPersonaje";
@@ -12,10 +13,12 @@ import { TabsFiltros } from "../components/tabsFiltros/TabsFiltros";
 import { useForm } from "../hooks/useForm";
 
 let page = JSON.parse(localStorage.getItem("Page")) || 1;
-//let personajes = JSON.parse(localStorage.getItem("PersonajesFiltro"));
 
 export const RickyMortyPages = () => {
- 
+  const history = useHistory();
+  const location = useLocation();
+  const filterPersonaje = location.search.split("?q=");
+
   const [modalIsOpen, setIsOpen] = useState(false);
   const [personaje, setGuardarPersonaje] = useState([]);
   const [value, inputValue, setReset] = useForm({
@@ -31,35 +34,52 @@ export const RickyMortyPages = () => {
   const [idFavoritos] = useState([]);
   const { search } = value;
 
-
   const mostrarTodoPersonajes = async () => {
-    let { info, results } = await getTodoPersonajes();
-    setGuardarPersonaje(results);
+    let results = await getTodoPersonajes();
+    setGuardarPersonaje(results.results);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const { info, results } = await getFiltroPersonajes(search);
-    setGuardarPersonaje(results);
-    localStorage.setItem("PersonajesFiltro", JSON.stringify(results));
+    history.push(`?q=${search}`);
+
+    const results = await getFiltroPersonajes(search);
+
+    if (results !== null) {
+      setGuardarPersonaje(results.results);
+    }
+
     setReset();
   };
 
   const selectFilter = async (e) => {
     const filtro = e.target.textContent;
-    const { info, results } = await getFiltroGender(filtro);
-    setGuardarPersonaje(results);
+    const results = await getFiltroGender(filtro);
+    if (results !== null) {
+      setGuardarPersonaje(results.results);
+    }
+  };
+
+  const recordarFiltro = async () => {
+    if (filterPersonaje[1] !== "") {
+      const resultsPersonaje = await getFiltroPersonajes(filterPersonaje[1]);
+
+      if (resultsPersonaje !== null) {
+        setGuardarPersonaje(resultsPersonaje.results);
+      }
+    }
   };
 
   const handleView = (id) => {
-    // setIdDetalle(id);
     selectDetallesPersonaje(id);
   };
   const selectDetallesPersonaje = async (id) => {
     if (id !== undefined) {
       const results = await getObtenerPersonaje(id);
-      mostrarEpisodiosInfo(results);
-      setDetallesPersonaje([results]);
+      if (results !== null) {
+        mostrarEpisodiosInfo(results);
+        setDetallesPersonaje([results]);
+      }
     }
 
     mostrarPersonajesInteresantes();
@@ -68,8 +88,6 @@ export const RickyMortyPages = () => {
   const mostrarEpisodiosInfo = async (detallePersonaje) => {
     setGuardarEpisodios([]);
     if (detallePersonaje !== undefined) {
-      //console.log(detallePersonaje,"episodios para mostrat")
-
       const paginacion_visible = 6;
       let numeroPagina;
       let paginaLista = [];
@@ -92,8 +110,9 @@ export const RickyMortyPages = () => {
 
   const mostrarPersonajesInteresantes = async () => {
     let result = await obtenerPersonajesInteresantes();
-
-    setGuardarPersonajesInteresantes(result);
+    if (result !== null) {
+      setGuardarPersonajesInteresantes(result);
+    }
   };
   const openModal = () => {
     setIsOpen(true);
@@ -105,11 +124,13 @@ export const RickyMortyPages = () => {
       "Page",
       paginador + 1 === 35 ? paginador : paginador + 1
     );
+    history.push(`?q=`);
   };
 
   const previous = () => {
     setPaginador(paginador - 1 === 0 ? 1 : paginador - 1);
     localStorage.setItem("Page", paginador - 1 === 0 ? 1 : paginador - 1);
+    history.push(`?q=`);
   };
 
   const seleccionarFavorito = (data, e) => {
@@ -118,9 +139,12 @@ export const RickyMortyPages = () => {
         .children[1].children[1].textContent;
     favoritos.push(data);
     idFavoritos.push(data.id);
+    
+    const dataArr = new Set(favoritos);
+
+    let result = [...dataArr];
     localStorage.setItem("idFavoritos", JSON.stringify(idFavoritos));
-    localStorage.setItem("favoritos", JSON.stringify(favoritos));
-    // setFavoritos(favoritos =>[...favoritos,data])
+    localStorage.setItem("favoritos", JSON.stringify(result));
 
     if (name === data.name) {
       e.target.classList.add("active-color");
@@ -133,6 +157,9 @@ export const RickyMortyPages = () => {
     mostrarEpisodiosInfo();
     mostrarTodoPersonajes();
     selectDetallesPersonaje();
+    if (filterPersonaje[1] !== undefined) {
+      recordarFiltro();
+    }
   }, [paginador]);
 
   return (

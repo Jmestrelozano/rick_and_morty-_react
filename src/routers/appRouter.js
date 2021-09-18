@@ -12,11 +12,13 @@ import { RickyMortyPages } from "../pages/rickyMortyPages";
 export const AppRouter = () => {
   return (
     <Router basename="/RickyAndMorty">
-      <Route exact path="/Principal" component={RickyMortyPages} />
       <Switch>
-        <Route exact path="/Principal/Favoritos" component={Favoritos} />
+        <Route exact path="/Principal/Favoritos" component={Favoritos} />   
+         <Route exact path="/Principal" component={RickyMortyPages} /> 
+         <Redirect to="/Principal" />
       </Switch>
-      <Redirect to="/Principal" />
+  
+     
     </Router>
   );
 };

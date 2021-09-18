@@ -24,7 +24,22 @@ li {
   top: 1rem;
   right: 1rem;
 }
+.boton-regresar{
+  text-decoration: none;
+  background: #11555F;
+  padding: .4rem 1rem .4rem 1rem;
+  border-radius: 60px;
+  color: white;
+  /* font-family: Lato; */
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 22px;
+}
 
+.boton-regresar:hover{
+  color: white;
+}
 .paginador-main {
   display: flex;
   justify-content: center;
