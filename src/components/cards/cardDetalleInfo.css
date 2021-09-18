@@ -1,0 +1,10 @@
+
+.card-detalle-info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .card-detalle-info .card-contenedor:nth-child(3) {
+    margin-top: 1rem;
+  }

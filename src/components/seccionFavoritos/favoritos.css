@@ -1,0 +1,35 @@
+.encabezado-favoritos {
+  display: flex;
+  align-items: center;
+}
+
+.encabezado-favoritos .titulo {
+  font-weight: normal;
+  font-size: 14px;
+  margin-bottom: 0;
+  line-height: 17px;
+}
+
+.fondo-estrella {
+  background: #e0e0e0;
+  border-radius: 1rem;
+  /* position: absolute; */
+  /* top: 31rem; */
+  width: 2rem;
+  height: 2rem;
+  margin-left: 0.5rem;
+}
+
+.logo-estrella {
+  position: relative;
+  left: 0.37rem;
+  top: 0.15rem;
+}
+
+.active-color {
+  color: #f2994a !important;
+}
+
+.default-color {
+  color: #828282 !important;
+}

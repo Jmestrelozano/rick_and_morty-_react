@@ -1,0 +1,120 @@
+.contenedor-modal {
+  padding: 1rem;
+}
+
+.informacion {
+  margin-bottom: 1rem;
+}
+
+.episodios {
+  margin-bottom: 1rem;
+}
+
+.personajes-interesantes {
+  margin-bottom: 0;
+}
+
+.contenedor-info-detalle {
+  display: flex;
+  justify-content: space-between;
+}
+
+.info-detalle {
+  border: 1px solid #bdbdbd;
+  /* box-sizing: border-box; */
+  border-radius: 8px;
+  width: 163px;
+  height: auto;
+  padding: 0.4rem;
+}
+
+.info-detalle p {
+  font-weight: normal;
+  font-size: 11px;
+  line-height: 13px;
+  /* identical to box height, or 118% */
+  margin-bottom: 0.2rem;
+  letter-spacing: 0.07px;
+
+  color: #828282;
+}
+
+.info-detalle .gender {
+  margin-bottom: 0;
+  font-weight: 600;
+  font-size: 17px;
+  line-height: 22px;
+  /* identical to box height, or 129% */
+
+  letter-spacing: -0.41px;
+
+  color: #081f32;
+}
+
+.info-detalle .origin {
+  margin-bottom: 0;
+  font-weight: 600;
+  font-size: 17px;
+  line-height: 22px;
+  /* identical to box height, or 129% */
+
+  letter-spacing: -0.41px;
+
+  color: #081f32;
+}
+
+.info-detalle .type {
+  margin-bottom: 0;
+  font-weight: 600;
+  font-size: 17px;
+  line-height: 22px;
+  /* identical to box height, or 129% */
+
+  letter-spacing: -0.41px;
+
+  color: #081f32;
+}
+
+
+.episodios-detalle{
+    display: flex;
+    /* justify-content: space-between; */
+    width: 44rem;
+    flex-wrap: wrap;
+  }
+  .info-episodio{
+    border: 1px solid #bdbdbd;
+    border-radius: 8px;
+    width: 163px;
+    height: auto;
+    padding: 0.4rem;
+    margin-top: .3rem;
+    margin-right: .8rem;
+  }
+  
+  .info-episodio .encabezado{
+    font-size: 11px;
+    line-height: 13px;
+    letter-spacing: 0.07px;
+    color: #828282;
+    margin-bottom: .2rem;
+  }
+  
+  .info-episodio .titulo{
+    font-weight: 600;
+    font-size: 17px;
+    line-height: 22px;
+    letter-spacing: -0.41px;
+    color: #081F32;
+    margin-bottom: 0;
+  }
+  
+  
+  .info-episodio .fecha{
+    font-weight: 500;
+    font-size: 11px;
+    line-height: 13px;
+    letter-spacing: 0.07px;
+    color: #828282;
+    margin-bottom: 0;
+  }

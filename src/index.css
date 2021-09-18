@@ -1,0 +1,86 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+ul {
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+.contenedor {
+  margin: 2rem 2rem 2rem 2rem;
+  padding: 0 9rem;
+}
+
+.button-modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
+.paginador-main {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.paginador-main button:nth-child(1) {
+  margin-right: 1rem;
+}
+
+.paginador-main .paginador-boton {
+  display: inline-block;
+  padding: 0.3em 1.2em;
+  margin: 0 0.1em 0.1em 0;
+  border: 0.16em solid rgba(255, 255, 255, 0);
+  border-radius: 2em;
+  text-decoration: none;
+  text-shadow: 0 0.04em 0.04em rgba(0, 0, 0, 0.35);
+  text-align: center;
+  transition: all 0.2s;
+}
+
+.paginador-main .paginador-boton:hover {
+  border-color: rgba(255, 255, 255, 1);
+}
+
+@media (max-width: 1024px) {
+  .contenedor {
+    margin: 0;
+    padding: 2rem;
+  }
+}
+@media (max-width: 768px) {
+  .contenedor {
+    margin: 0;
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 425px) {
+  .contenedor {
+    margin: 0;
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 375px) {
+  .contenedor {
+    margin: 0;
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 320px) {
+  .contenedor {
+    margin: 0;
+    padding: 1rem;
+  }
+}

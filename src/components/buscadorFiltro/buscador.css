@@ -1,0 +1,76 @@
+.has-search .form-control {
+  padding-left: 2.375rem;
+}
+
+.has-search .form-control-feedback {
+  position: absolute;
+  z-index: 0;
+  display: block;
+  width: 2.375rem;
+  height: 2.375rem;
+  line-height: 2.375rem;
+  text-align: center;
+  pointer-events: none;
+  color: #aaa;
+}
+
+.input-buscador {
+  background-color: #081f32;
+  color: white;
+  border: 2px solid #f2f2f2;
+}
+
+.input-buscador:focus {
+  background-color: #081f32;
+  color: white;
+  border: 2px solid #f2f2f2;
+  outline: none;
+  box-shadow: none;
+}
+
+.buscador-filtro {
+  position: absolute;
+  top: 266px;
+  left: 470px;
+  width: 500px;
+  height: 60px;
+}
+@media (max-width: 768px) {
+  .buscador-filtro {
+    position: absolute;
+    top: 315px;
+    left: 6rem;
+    width: 72%;
+    height: 42px;
+  }
+}
+
+@media (max-width: 425px) {
+  .buscador-filtro {
+    position: absolute;
+    top: 266px;
+    left: 3rem;
+    width: 72%;
+    height: 42px;
+  }
+}
+
+@media (max-width: 375px) {
+  .buscador-filtro {
+    position: absolute;
+    top: 266px;
+    left: 3rem;
+    width: 72%;
+    height: 42px;
+  }
+}
+
+@media (max-width: 320px) {
+  .buscador-filtro {
+    position: absolute;
+    top: 266px;
+    left: 3rem;
+    width: 72%;
+    height: 42px;
+  }
+}
