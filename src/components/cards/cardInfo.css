@@ -8,7 +8,7 @@
 .card-contenedor {
   width: 326px;
   display: grid;
-  height: 140px;
+  height: auto;
   grid-template-columns: repeat(2, 0.3fr);
   border: 1px solid #e0e0e0;
 
@@ -17,7 +17,7 @@
 
 .card-img img {
   width: 140px;
-  height: 140px;
+  height: 11rem;
   border-radius: 10px 0px 0px 10px;
 }
 
@@ -29,45 +29,30 @@
 .card-contenido .gender {
   font-size: 10px;
   line-height: 12.19px;
-
   margin-bottom: 0;
 }
 
 .card-contenido .titulo {
-  font-size: 16px;
+  font-size: 14px;
+  font-weight: bold;
   line-height: 20px;
 }
 
-.card-contenido .localizacion {
-  font-size: 10px;
-  line-height: 12px;
-  margin-bottom: 0;
+.card-contenido .titulo-contenido {
+  font-size: 12px;
+  line-height: 15px; 
   color: #828282;
-}
-
-.card-contenido .localizacion {
-  font-size: 12px;
-  line-height: 15px;
   margin-bottom: 0;
 }
 
-.card-contenido .titulo-localizacion {
-  font-size: 12px;
 
-  margin-bottom: 0;
-  line-height: 15px;
-}
+
 .card-contenido .descripcion {
-  font-size: 10px;
-  line-height: 12px;
-  margin-bottom: 0;
-  color: #828282;
-}
-
-.card-contenido .titulo-descripcion {
   font-size: 12px;
   line-height: 15px;
-  margin-bottom: 0;
+  text-transform: capitalize;
+  font-weight: bold;
+
 }
 
 .card-contenedor .btn-favorito {
@@ -83,7 +68,6 @@
 }
 .card-contenedor .favorito {
   position: absolute;
-  /* left: 32rem; */
   margin-left: 6.5rem;
   margin-bottom: 0.4rem;
 }
@@ -91,10 +75,21 @@
 .card-contenedor .favorito .btn-favorito i {
   color: #828282;
 }
+.truncar-texto{
+  white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
 
 @media (max-width: 1024px) {
   .card-contenedor {
     width: 299px;
+  }
+  .truncar-texto{
+    white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      width: 6rem;
   }
 }
 
@@ -114,6 +109,17 @@
     width: auto;
     height: auto;
     padding: 0.5rem 1rem;
+  }
+  .card-img img {
+    width: 140px;
+    height: 11rem;
+    border-radius: 10px 0px 0px 10px;
+  }
+  .truncar-texto{
+    white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      width: 9rem;
   }
 }
 
@@ -153,6 +159,13 @@
     height: auto;
     padding: 0.5rem 1rem;
   }
+  
+  .truncar-texto{
+    white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      width: 7rem;
+  }
 }
 
 @media (max-width: 320px) {
@@ -175,6 +188,7 @@
   }
 
   .card-img img {
-    height: 9rem;
+    height: 11rem;
   }
+
 }

@@ -2,13 +2,15 @@ import React, { useEffect, useState } from "react";
 import { useHistory, useLocation } from "react-router";
 import { getFiltroGender } from "../apis/getFiltroGender";
 import { getFiltroPersonajes } from "../apis/getFiltroPersonajes";
-import { getObtenerPersonaje } from "../apis/getObtenerPersonaje";
-import { getTodoPersonajes } from "../apis/getObtenerTodosPersonajes";
+import {  getObtenerPersonajeEspecifico } from "../apis/getObtenerPersonajeEspecifico";
+import { getTodoPersonajesPaginacion } from "../apis/getObtenerTodosPersonajesPaginacion";
+import { obtenerPersonajes } from "../apis/obtenerPersonajes";
 import { obtenerPersonajesInteresantes } from "../apis/ObtenerPersonajesInteresantes";
 import { BuscadorFiltro } from "../components/buscadorFiltro/BuscadorFiltro";
 import { Footer } from "../components/footer/Footer";
 import { Header } from "../components/header/Header";
 import { MainVistaPrincipal } from "../components/MainVistaPrincipal";
+import { BtnPaginador } from "../components/paginador/BtnPaginador";
 import { TabsFiltros } from "../components/tabsFiltros/TabsFiltros";
 import { useForm } from "../hooks/useForm";
 
@@ -35,7 +37,7 @@ export const RickyMortyPages = () => {
   const { search } = value;
 
   const mostrarTodoPersonajes = async () => {
-    let results = await getTodoPersonajes();
+    let results = await obtenerPersonajes();
     setGuardarPersonaje(results.results);
   };
 
@@ -55,7 +57,8 @@ export const RickyMortyPages = () => {
   const selectFilter = async (e) => {
     const filtro = e.target.textContent;
     const results = await getFiltroGender(filtro);
-    if (results !== null) {
+
+    if (results !== null && results !== undefined) {
       setGuardarPersonaje(results.results);
     }
   };
@@ -75,7 +78,7 @@ export const RickyMortyPages = () => {
   };
   const selectDetallesPersonaje = async (id) => {
     if (id !== undefined) {
-      const results = await getObtenerPersonaje(id);
+      const results = await getObtenerPersonajeEspecifico(id);
       if (results !== null) {
         mostrarEpisodiosInfo(results);
         setDetallesPersonaje([results]);
@@ -118,6 +121,11 @@ export const RickyMortyPages = () => {
     setIsOpen(true);
   };
 
+  const mostrarTodosPersonajesPaginas =async() =>{
+    let results = await getTodoPersonajesPaginacion()
+    setGuardarPersonaje(results.results);
+  }
+
   const next = () => {
     setPaginador(paginador + 1 === 35 ? paginador : paginador + 1);
     localStorage.setItem(
@@ -125,12 +133,14 @@ export const RickyMortyPages = () => {
       paginador + 1 === 35 ? paginador : paginador + 1
     );
     history.push(`?q=`);
+    mostrarTodosPersonajesPaginas()
   };
 
   const previous = () => {
     setPaginador(paginador - 1 === 0 ? 1 : paginador - 1);
     localStorage.setItem("Page", paginador - 1 === 0 ? 1 : paginador - 1);
     history.push(`?q=`);
+    mostrarTodosPersonajesPaginas()
   };
 
   const seleccionarFavorito = (data, e) => {
@@ -153,6 +163,9 @@ export const RickyMortyPages = () => {
     }
   };
 
+
+ 
+
   useEffect(() => {
     mostrarEpisodiosInfo();
     mostrarTodoPersonajes();
@@ -160,8 +173,13 @@ export const RickyMortyPages = () => {
     if (filterPersonaje[1] !== undefined) {
       recordarFiltro();
     }
-  }, [paginador]);
 
+  }, []);
+
+  useEffect(() => {
+    mostrarTodosPersonajesPaginas()
+  },[])
+  
   return (
     <>
       <Header>
@@ -184,15 +202,7 @@ export const RickyMortyPages = () => {
         detallesPersonaje={detallesPersonaje}
         seleccionarFavorito={seleccionarFavorito}
       />
-      <div className="paginador-main">
-        <button className="paginador-boton" onClick={previous}>
-          <i className="fas fa-arrow-left"></i>
-        </button>
-        <button className="paginador-boton" onClick={next}>
-          <i className="fas fa-arrow-right"></i>
-        </button>
-      </div>
-
+      <BtnPaginador previous={previous} next={next} />
       <Footer />
     </>
   );

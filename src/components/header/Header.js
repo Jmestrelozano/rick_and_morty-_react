@@ -2,7 +2,7 @@ import React from 'react'
 import  "../header/header.css"
 export const Header = ({children}) => {
     return (
-        <div className="header">
+        <div>
             <div className="fondo">
                 <img className="fondo-img" src={process.env.PUBLIC_URL+'/assets/img/bg.png'} alt="fondo background"/>
             </div>
@@ -13,8 +13,6 @@ export const Header = ({children}) => {
             <div className="buscador-filtro">
                 {children}
             </div>
-          
-
         </div>
     )
 }

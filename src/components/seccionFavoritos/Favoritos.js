@@ -5,7 +5,7 @@ import { Header } from "../header/Header";
 import "../seccionFavoritos/favoritos.css";
 import { CardInfo } from "../cards/CardInfo";
 import { App } from "../../pages/detallesPages";
-import { getObtenerPersonaje } from "../../apis/getObtenerPersonaje";
+import { getObtenerPersonajeEspecifico } from "../../apis/getObtenerPersonajeEspecifico";
 import { obtenerPersonajesInteresantes } from "../../apis/ObtenerPersonajesInteresantes";
 import { useHistory } from "react-router";
 export const Favoritos = () => {
@@ -26,7 +26,7 @@ export const Favoritos = () => {
 
   const selectDetallesPersonaje = async (id) => {
     if (id !== undefined) {
-      const results = await getObtenerPersonaje(id);
+      const results = await getObtenerPersonajeEspecifico(id);
       mostrarEpisodiosInfo(results);
       setDetallesPersonaje([results]);
     }

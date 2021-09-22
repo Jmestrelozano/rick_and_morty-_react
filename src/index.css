@@ -40,31 +40,7 @@ li {
 .boton-regresar:hover{
   color: white;
 }
-.paginador-main {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 1rem;
-}
 
-.paginador-main button:nth-child(1) {
-  margin-right: 1rem;
-}
-
-.paginador-main .paginador-boton {
-  display: inline-block;
-  padding: 0.3em 1.2em;
-  margin: 0 0.1em 0.1em 0;
-  border: 0.16em solid rgba(255, 255, 255, 0);
-  border-radius: 2em;
-  text-decoration: none;
-  text-shadow: 0 0.04em 0.04em rgba(0, 0, 0, 0.35);
-  text-align: center;
-  transition: all 0.2s;
-}
-
-.paginador-main .paginador-boton:hover {
-  border-color: rgba(255, 255, 255, 1);
-}
 
 @media (max-width: 1024px) {
   .contenedor {

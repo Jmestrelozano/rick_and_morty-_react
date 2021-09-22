@@ -39,7 +39,7 @@
   color: #828282;
 }
 
-.info-detalle .gender {
+.info-detalle .titulo {
   margin-bottom: 0;
   font-weight: 600;
   font-size: 17px;
@@ -51,29 +51,7 @@
   color: #081f32;
 }
 
-.info-detalle .origin {
-  margin-bottom: 0;
-  font-weight: 600;
-  font-size: 17px;
-  line-height: 22px;
-  /* identical to box height, or 129% */
 
-  letter-spacing: -0.41px;
-
-  color: #081f32;
-}
-
-.info-detalle .type {
-  margin-bottom: 0;
-  font-weight: 600;
-  font-size: 17px;
-  line-height: 22px;
-  /* identical to box height, or 129% */
-
-  letter-spacing: -0.41px;
-
-  color: #081f32;
-}
 
 
 .episodios-detalle{

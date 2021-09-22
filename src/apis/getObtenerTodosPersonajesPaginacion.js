@@ -1,6 +1,6 @@
 import { URL_API } from "../global/globales";
 
-export const getTodoPersonajes = async () => {
+export const getTodoPersonajesPaginacion = async () => {
   try {
     const obtenerPage = localStorage.getItem("Page")|| 1
     let response = await fetch(`${URL_API}/character/?page=${obtenerPage}`);
